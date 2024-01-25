@@ -9,12 +9,11 @@ import {
 import { auth } from "../utils/firebase";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constant";
 
 const Login = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [signInForm, setSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -47,7 +46,7 @@ const Login = () => {
         const user = userCredential.user;
         updateProfile(user, {
           displayName: name.current.value,
-          photoURL: "https://avatars.githubusercontent.com/u/85551495?v=4",
+          photoURL: USER_AVATAR,
         }).then(() => {
           const { uid, email, displayName, photoURL } = auth.currentUser;
           dispatch(
@@ -58,7 +57,6 @@ const Login = () => {
               photoURL: photoURL,
             })
           );
-          navigate("/browse");
         });
 
         successMessage = "User successfully registered!";
@@ -70,8 +68,6 @@ const Login = () => {
           password.current.value
         );
         const user = userCredential.user;
-        console.log(user);
-        navigate("/browse");
 
         successMessage = "User successfully signed in!";
       }
@@ -94,8 +90,9 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute">
+      <div className="absolute inset-0 overflow-hidden">
         <img
+          className="w-full h-full object-cover"
           src="https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/a449fabb-05e4-4c8a-b062-b0bec7d03085/IN-en-20240115-trifectadaily-perspective_alpha_website_small.jpg"
           alt="logo"
         />
