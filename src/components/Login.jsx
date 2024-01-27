@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { USER_AVATAR } from "../utils/constant";
+import { BACK_LOGO, USER_AVATAR } from "../utils/constant";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -93,7 +93,7 @@ const Login = () => {
       <div className="absolute inset-0 overflow-hidden">
         <img
           className="w-full h-full object-cover"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/a449fabb-05e4-4c8a-b062-b0bec7d03085/IN-en-20240115-trifectadaily-perspective_alpha_website_small.jpg"
+          src={BACK_LOGO}
           alt="logo"
         />
       </div>
