@@ -90,16 +90,12 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="fixed inset-0 overflow-hidden">
-        <img
-          className="w-full h-full object-cover"
-          src={BACK_LOGO}
-          alt="logo"
-        />
+      <div className="absolute">
+        <img className="h-screen object-cover" src={BACK_LOGO} alt="logo" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="w-4/12 absolute bg-black p-12 my-20 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-75"
+        className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {signInForm ? "Sign In" : "Sign Up"}
@@ -126,12 +122,12 @@ const Login = () => {
         />
 
         <button
-          className="p-6 my-6 bg-red-500 w-full"
+          className="p-4 my-6 bg-red-700 w-full rounded-lg"
           onClick={handleButtonClick}
         >
           {signInForm ? "Sign In" : "Sign Up"}
         </button>
-        <p className="py-2 hover:cursor-pointer" onClick={toggleSignForm}>
+        <p className="py-4 cursor-pointer" onClick={toggleSignForm}>
           {signInForm ? "Not Register? Sign Up" : "Already Register? Sign In"}
         </p>
       </form>

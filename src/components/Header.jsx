@@ -53,13 +53,13 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute w-screen px-4 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
-      <img className="w-44" src={LOGO} alt="logo" />
+    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+      <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
       {user && (
-        <div className="flex p-3.5">
+        <div className="flex p-2 justify-between">
           {showGptSearch && (
             <select
-              className="m-2 p-2 bg-gray-900 text-white"
+              className="p-2 m-2 bg-gray-900 text-white"
               onChange={handleChange}
             >
               {SUPPORT_LANG.map((lang) => (
@@ -71,16 +71,16 @@ const Header = () => {
           )}
           <button
             onClick={handleGptSearch}
-            className="py-2 mb-2 px-4 mx-4 text-white rounded-lg bg-blue-500 hover:bg-opacity-80 "
+            className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg"
           >
-            {showGptSearch? "HomePage" : "GPT Search"}
+            {showGptSearch ? "HomePage" : "GPT Search"}
           </button>
           <img
-            className="w-10 h-10"
+            className="hidden md:block w-12 h-12"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6gvzn1GdKNUXEHFYz9x0ZoCq8TCWAXsZwA&usqp=CAU"
             alt="use"
           />
-          <button onClick={handleSignOut} className="p-2 font-bold text-white">
+          <button onClick={handleSignOut} className="font-bold text-white ">
             Sign Out
           </button>
         </div>
