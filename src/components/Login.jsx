@@ -90,7 +90,7 @@ const Login = () => {
   return (
     <div>
       <Header />
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="fixed inset-0 overflow-hidden">
         <img
           className="w-full h-full object-cover"
           src={BACK_LOGO}
